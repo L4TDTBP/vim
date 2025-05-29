@@ -1,0 +1,164 @@
+"base configuration
+set showmode
+set incsearch
+set nu
+set relativenumber
+set ignorecase
+set smartcase
+set clipboard+=unnamed
+set visualbell
+set scrolloff=5
+
+"IDE & vim
+set idearefactormode=normal
+set ideastatusicon=gray
+set easymotion
+
+" keymaps
+
+" the leader key
+let mapleader=" "
+
+" remaps
+" redo
+nnoremap U <C-r>
+" delete current char into black hole register
+nnoremap x "_x
+" delete previous char into black hole register
+nnoremap X "_X
+" change rest of word into black hole register
+nnoremap cw "_cw
+" change word into black hole register
+nnoremap ciw "_ciw
+" comfort shortcuts
+nnoremap <C-d> yyp
+" move to first char in line
+nnoremap F ^
+" move to last char in line
+nnoremap L $
+" goto closing/opening bracket pair
+nnoremap B %
+" copy current line into clipboard (without newLine)
+nnoremap <C-c> ^vg_y
+" Select all
+nmap <C-a> gg<S-v>G
+
+" better escape
+imap jk <Esc>
+
+" surround marked text with ()
+xnoremap <leader>s xi()<Esc>P
+" surround marked text with []
+xnoremap <leader>s[ xi[]<Esc>P
+xnoremap <leader>s] xi[]<Esc>P
+" surround marked text with {}
+xnoremap <leader>s{ xi{}<Esc>P
+xnoremap <leader>s} xi{}<Esc>P
+
+" terminal
+nmap <C-t> <Action>(ActivateTerminalToolWindow)
+nmap <leader>t <Action>(Terminal.OpenInTerminal)
+
+" Important --> Close Current Buffer with CMD-4 or Control-4 on Windows
+" This allows to close for example the Debugger-Console Windows
+
+" zen-mode
+nmap <C-z> <Action>(ToggleDistractionFreeMode)
+
+" find
+nmap <C-f> <Action>(GotoFile)
+nmap <C-r> <Action>(RecentFiles)
+nmap <C-c> <Action>(GotoClass)
+
+" navigation
+map J }
+map K {
+
+nmap sv <Action>(SplitVertically)
+nmap ss <Action>(SplitHorizontally)
+nmap sm <Action>(MoveEditorToOppositeTabGroup)
+
+nmap sh <c-w>h
+nmap sl <c-w>l
+nmap sj <c-w>j
+nmap sk <c-w>k
+
+nmap <TAB> <Action>(PreviousTab)
+nmap <S-TAB> <Action>(NextTab)
+
+nmap <leader>1 <Action>(GoToTab1)
+nmap <leader>2 <Action>(GoToTab2)
+nmap <leader>3 <Action>(GoToTab3)
+nmap <leader>4 <Action>(GoToTab4)
+nmap <leader>5 <Action>(GoToTab5)
+nmap <leader>6 <Action>(GoToTab6)
+nmap <leader>7 <Action>(GoToTab7)
+nmap <leader>8 <Action>(GoToTab8)
+nmap <leader>9 <Action>(GoToTab9)
+
+nmap ;q <Action>(CloseContent)
+
+" code interactions
+map <leader>c <Action>(CommentByLineComment)
+map <leader>C <Action>(CommentByBlockComment)
+nmap <leader>r <Action>(RenameElement)
+nmap <leader>f <Action>(ReformatCode)
+xmap <leader>rf <Action>(Refactorings.QuickListPopupAction)
+nmap <leader>su <Action>(ShowUsages)
+nmap <leader>sU <Action>(FindUsages)
+nmap <leader>m  <Action>(CollapseRegion)
+nmap <leader>M  <Action>(ExpandRegion)
+nmap <leader>am <Action>(CollapseAllRegions)
+nmap <leader>aM <Action>(ExpandAllRegions)
+nmap <leader>oi <Action>(OptimizeImports)
+
+" code information
+nmap <leader>d <Action>(ShowHoverInfo)
+nmap <leader>e <Action>(ShowErrorDescription)
+
+" code navigation
+nmap gd <Action>(GotoDeclaration)
+nmap gi <Action>(GotoImplementation)
+nmap gp <Action>(JumpToLastChange)
+nmap gn <Action>(JumpToNextChange)
+nmap gt <Action>(GotoTest)
+nmap gne <Action>(GotoNextError)
+nmap gpe <Action>(GotoPreviousError)
+nmap gmu <Action>(MethodUp)
+nmap gmd <Action>(MethodDown)
+
+" move line up or down
+nmap <C-j> <Action>(MoveLineDown)
+nmap <C-k> <Action>(MoveLineUp)
+
+" debugging
+nmap <leader>dc <Action>(Debug)
+nmap <leader>ds <Action>(Stop)
+nmap <leader>db <Action>(ToggleLineBreakpoint)
+
+" run
+nmap <leader>rc <Action>(Run)
+nmap <leader>rx <Action>(ChooseRunConfiguration)
+nmap <leader>rr <Action>(Rerun)
+nmap <leader>rs <Action>(Stop)
+nmap <leader>rt <Action>(RunTests)
+
+" todo
+nmap <leader>to <Action>(ActivateTODOToolWindow)
+
+" configurations
+nmap \\v <Action>(VimActions)
+
+"---------- plugins ----------
+" easy motion
+Plug 'easymotion/vim-easymotion'
+map <leader>J <Plug>(easymotion-s)
+map <leader>j <Plug>(easymotion-f)
+
+Plug 'preservim/nerdtree'
+map <c-n> :NERDTree<CR>
+":NERDTreeFocus
+":NERDTreeToggle
+map <c-q> :NERDTreeClose<CR>
+":NERDTreeFind
+":NERDTreeRefreshRoot
