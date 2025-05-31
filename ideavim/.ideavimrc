@@ -30,12 +30,18 @@ nnoremap X "_X
 nnoremap cw "_cw
 " change word into black hole register
 nnoremap ciw "_ciw
+" send overwritten text into black hole register
+vnoremap p "_dP
 " comfort shortcuts
 nnoremap <C-d> yyp
 " move to first char in line
 nnoremap F ^
+" select to first char in line
+nnoremap vF v^
 " move to last char in line
 nnoremap L $
+" select to last char in line
+nnoremap vL v$
 " goto closing/opening bracket pair
 nnoremap B %
 " copy current line into clipboard (without newLine)
@@ -47,13 +53,13 @@ nmap <C-a> gg<S-v>G
 imap jk <Esc>
 
 " surround marked text with ()
-xnoremap <leader>s xi()<Esc>P
+xnoremap <leader>s xi ()<ESC>l"_xP
 " surround marked text with []
-xnoremap <leader>s[ xi[]<Esc>P
-xnoremap <leader>s] xi[]<Esc>P
+xnoremap <leader>s[ xi []<ESC>l"_xP
+xnoremap <leader>s] xi []<ESC>l"_xP
 " surround marked text with {}
-xnoremap <leader>s{ xi{}<Esc>P
-xnoremap <leader>s} xi{}<Esc>P
+xnoremap <leader>s{ xi {}<ESC>l"_xP
+xnoremap <leader>s} xi {}<ESC>l"_xP
 
 " terminal
 nmap <C-t> <Action>(ActivateTerminalToolWindow)
@@ -68,7 +74,6 @@ nmap <C-z> <Action>(ToggleDistractionFreeMode)
 " find
 nmap <C-f> <Action>(GotoFile)
 nmap <C-r> <Action>(RecentFiles)
-nmap <C-c> <Action>(GotoClass)
 
 " navigation
 map J }
