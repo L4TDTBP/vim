@@ -57,3 +57,9 @@ opt.undofile = true
 
 -- faster update times
 opt.updatetime = 250
+
+-- code folding
+opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+opt.foldenable = true
+opt.foldlevel = 99

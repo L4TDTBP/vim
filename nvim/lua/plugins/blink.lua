@@ -9,7 +9,7 @@ return {
 	config = function()
 		require("blink.cmp").setup({
 			keymap = {
-				preset = "default",
+				preset = "none",
 				-- navigation in completion menu
 				["<C-j>"] = { "select_next", "fallback" },
 				["<C-k>"] = { "select_prev", "fallback" },

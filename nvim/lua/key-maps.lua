@@ -73,3 +73,10 @@ map.set("n", "<leader>db", ":bd<CR>", { noremap = true, desc = "delete buffer" }
 -- close quickfix (e.g. references split)
 map.set("n", "<leader>xq", ":cclose<CR>", { noremap = true, desc = "close quickfix" })
 map.set("n", "<leader>jq", ":copen<CR>", { noremap = true, desc = "jump to quickfix" })
+
+-- code folding --
+------------------
+map.set("n", "<leader>m", "zc", { desc = "collapse method" })
+map.set("n", "<leader>M", "zo", { desc = "expand method" })
+map.set("n", "<leader>am", "zM", { desc = "collapse all" })
+map.set("n", "<leader>aM", "zR", { desc = "expand all" })
